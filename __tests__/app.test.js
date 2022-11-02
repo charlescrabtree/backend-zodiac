@@ -23,3 +23,14 @@ describe('zodiac routes', () => {
   });
 });
 
+describe('horoscope routes', () => {
+  it('/horoscopes should return a horoscope for corresponding zodiac signs', async () => {
+    const res = await request(app).get('/horoscopes/aquarius');
+    const horoscope = {
+      sign: 'aquarius',
+      date: expect.any(String),
+      horoscope: expect.any(String),     
+    };
+    expect(res.body).toEqual(horoscope); 
+  });
+});
